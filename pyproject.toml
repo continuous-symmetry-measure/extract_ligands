@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extract-ligand"
+version = "0.1.0"
+description = "Extract main ligands from HIV protease PDB files"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "biopython>=1.81",
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.scripts]
+extract-ligands = "extract_ligands.extractor.main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/extract-ligand"
+Repository = "https://github.com/yourusername/extract-ligand"
