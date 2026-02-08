@@ -27,8 +27,6 @@ A residue is written out only if:
 
 These lists are defined at the top of the script and should be edited to match your project.
 
----
-
 ## Requirements
 
 - Python 3.11
