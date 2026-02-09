@@ -93,8 +93,6 @@ Files that already start with lig_ are skipped.
 
 The counter resets for each input PDB file.
 
----
-
 ## Important limitations and caveats
 
 1. **Hard-coded filtering**
