@@ -55,7 +55,6 @@ If you only want to process specific files, create a text file with one PDB file
 Then run:
 
 ```
-
 extract_ligands.py -d /path/to/pdbs -l files.txt
 
 ``` 
