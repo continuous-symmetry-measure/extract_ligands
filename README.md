@@ -13,7 +13,6 @@ Example:
 
 Where n is ligands counter
 
----
 ## What the script considers a “ligand”
 
 A residue is written out only if:
