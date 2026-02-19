@@ -1,8 +1,13 @@
 # extract_ligands
 
-Extract “main ligands” (HETATM residues) from PDB files and write each ligand into a separate PDB file.
+Extract “main ligands” from a set of protein structure in PDB format 
+and write each ligand into a separate PDB file.
 
-This script scans each input `*.pdb` file, identifies HETATM residues, filters out waters/ions/small molecules/non-standard residues using **hard-coded residue name lists**, and writes each remaining ligand residue as its own file.
+This script scans each input `*.pdb` file, identifies 
+HETATM residues, filters out 
+water molecules/ions/small molecules/non-standard residues
+using **hard-coded residue name lists**, 
+and writes each remaining ligand residue as its own file.
 
 Output files are named:
 
@@ -24,7 +29,8 @@ A residue is written out only if:
    - `small_mols`
    - `non_standard_res`
 
-These lists are defined at the top of the script and should be edited to match your project.
+These lists are defined at the top of the script and can be edited 
+to match the specific project.
 
 ## Requirements
 
@@ -45,9 +51,10 @@ Run on all PDB files in a directory:
 ```
 extract_ligands.py -d /path/to/pdbs
 ```
-**Optional:** provide a file list
+**Optional:** provide a list of proteins as a text file.
 
-If you only want to process specific files, create a text file with one PDB filename per line, e.g. files.txt:
+To process specific proteins, create a text file with 
+one PDB filename per line, e.g. files.txt:
 
 1abc.pdb
 2xyz.pdb
@@ -56,7 +63,7 @@ If you only want to process specific files, create a text file with one PDB file
 Then run:
 
 ```
-extract_ligands.py -d /path/to/pdbs -l files.txt
+extract_ligands.py -d /path/to/pdbs --list files.txt
 
 ``` 
 **Output directory**
@@ -73,7 +80,7 @@ extract_ligands.py -d /path/to/pdbs -o /path/to/output_ligands
 ```
 **Output**
 
-For each input pdb filr xxxx.pdb, the script writes one file per ligand residue found:
+For each input PDB file xxxx.pdb, the script writes one file per ligand residue found:
 
 lig_xxxx_1_YYY.pdb
 lig_xxxx_2_ZZZ.pdb
@@ -81,11 +88,11 @@ lig_xxxx_2_ZZZ.pdb
 
 Where:
 
-xxxx = input PDB id (filename without .pdb)
+xxxx = input PDB id (filename without the .pdb extension)
 
 1, 2, ... = counter (per input file)
 
-YYY = ligand residue name from the PDB (e.g., 017, INH, NAP)
+YYY = ligand residue name from the PDB file (e.g., 017, INH, NAP)
 
 Notes:
 
@@ -97,7 +104,7 @@ The counter resets for each input PDB file.
 
 1. **Hard-coded filtering**
 
-The lists ions, small_mols, and non_standard_res are embedded in the script.
+The lists of ions, small_mols, and non_standard_res are embedded in the script.
 
 This is project-specific and should be reviewed/edited for new datasets.
 
@@ -107,17 +114,19 @@ Each output file contains the atoms of a single HETATM residue.
 
 Multi-residue ligands (rare but possible) will be split across multiple files.
 
-3. **Models**
+3. **PDB files with multiple models**
 
-The script iterates over all models, but the output naming does not include the model number.
+The script iterates over all models in a given PDB file,
+but the output naming does not include the model number.
 
 If the same ligand appears in multiple models, outputs may overwrite or appear duplicated depending on PDB content.
 
 4. **No chemical bonding information**
 
-Output is a coordinate-only PDB. Bond orders/chemistry are not inferred or validated.
+Output is a coordinate-only PDB file. The ligands are written with no PDB file header 
+or CONNECT lines.
 
-5. **Waters**
+5. **Water molecules**
 
 Waters are excluded using the residue id flag check (residue.id[0] == "W").
 
@@ -147,6 +156,7 @@ Writes each accepted residue using Bio.PDB.PDBIO with a Select subclass to isola
     - Confirm your ligands are actually HETATM residues in the PDB.
 
     - Check whether your ligand residue name is accidentally included in the exclusion lists.
+    - The PDB file does not have any main-ligand
 
 - **Too many outputs / salts included**
 
@@ -158,7 +168,7 @@ Writes each accepted residue using Bio.PDB.PDBIO with a Select subclass to isola
 ## License
 
 This project is licensed under the MIT License.  
-Copyright (c) 2026 Inbal Tuvi-Arad and Yaffa Shalit  
+Copyright (c) 2026 Yaffa Shalit and Inbal Tuvi-Arad 
 See 'LICENSE' file for details 
 
 ## Contact 
