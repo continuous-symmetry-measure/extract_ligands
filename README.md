@@ -34,7 +34,9 @@ These lists are defined at the top of the script and should be edited to match y
 ## Installation
 Install the tool from the source directory
 ```bash
-pip install .
+conda create -n ligandsenv python=3.11
+conda activate ligandsenv
+pip install -r requirements.txt
 ```
 
 ## Usage
