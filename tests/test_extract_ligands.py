@@ -1,6 +1,6 @@
 # tests/test_extract_ligands.py
 import pytest
-from src.extract_ligands.extractor import is_het, is_main_ligand
+from src.extract_ligands.extrac_ligands import is_het, is_main_ligand
 
 
 class TestIsHet:
