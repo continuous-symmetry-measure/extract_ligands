@@ -153,17 +153,13 @@ Writes each accepted residue using Bio.PDB.PDBIO with a Select subclass to isola
 
 - **Nothing is written**
 
-    - Confirm your ligands are actually HETATM residues in the PDB.
+    - Confirm that ligands are actually HETATM residues in the PDB.
 
-    - Check whether your ligand residue name is accidentally included in the exclusion lists.
+    - Check whether the ligand residue name is accidentally included in the exclusion lists.
     - The PDB file does not have any main-ligand
 
-- **Too many outputs / salts included**
-
-    - Add residue codes to the exclusion lists at the top of the script.
-
 - **Missing ligands** 
-    - Verify the ligand is not considered a non-standard residue or small molecule by your current lists.
+    - Verify the ligand is not considered a non-standard residue or small molecule by the current lists.
 
 ## License
 
