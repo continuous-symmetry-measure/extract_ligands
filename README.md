@@ -130,7 +130,6 @@ or CONNECT lines.
 
 Waters are excluded using the residue id flag check (residue.id[0] == "W").
 
-
 ### How it works (brief)
 
 Parses PDB with Bio.PDB.PDBParser(PERMISSIVE=1, QUIET=True)
