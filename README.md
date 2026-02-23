@@ -18,6 +18,8 @@ Example:
 
 Where n is ligands counter
 
+[![DOI](https://zenodo.org/badge/1152971793.svg)](https://doi.org/10.5281/zenodo.18742997)
+
 ## What the script considers a “ligand”
 
 A residue is written out only if:
